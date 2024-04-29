@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv  from 'dotenv';
-//import userRoutes from './routes/user.route.js';
+import userRoutes from './routes/user.route.js';
 //import authRoutes from './routes/auth.route.js';
 
 dotenv.config()
@@ -9,7 +9,6 @@ dotenv.config()
 
 mongoose.connect(
     process.env.MONGO
-    //"mongodb+srv://mindmeproj24:mindme@mind-me.jwvv2iw.mongodb.net/?retryWrites=true&w=majority&appName=mind-me"
 ).then (()=>{
     console.log("Mongodb is connected");
 }).catch((err)=>{
@@ -22,7 +21,7 @@ app.listen(3000,()=>{
     console.log('Server is running on port 3000..');
 });
 
-// app.use('/api/user',userRoutes);
+app.use('/api/user',userRoutes);
 // app.use('/api/auth',authRoutes);
 // app.use((err, req, res, next) => {
 //     const statusCode = err.statusCode || 500;
